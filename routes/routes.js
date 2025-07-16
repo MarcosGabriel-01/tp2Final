@@ -6,7 +6,6 @@ const routes = Router();
 
 routes.get("/", controller.getAll);
 routes.get("/:id", controller.getById);
-routes.use(nameMidlewareValidate);
-routes.post("/", controller.create);
+routes.post("/", nameMidlewareValidate, controller.create);
 
 export default routes;

@@ -1,9 +1,8 @@
 {
-  "name": "martes",
+  "name": "final",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
-  "devDependencies": {},
   "scripts": {
     "start": "node .",
     "dev": "node --watch .",
