@@ -1,25 +1,26 @@
-import { v4 as uuidv4 } from "uuid";
-
 class Service {
-  data = [
-    { id: 1, nombre: "osval" },
-    { id: 2, nombre: "Canela" },
-  ];
+  constructor() {
+    this.data = [{ id: "AEI123", xa: 2000, ya: 3500, za: 600 }];
+  }
 
-  getAll = async () => {
+  async create(vuelo) {
+    const index = this.data.findIndex((f) => f.id === vuelo.id);
+    if (index !== -1) {
+      this.data[index] = vuelo;
+      return this.data[index];
+    }
+
+    this.data.push(vuelo);
+    return vuelo;
+  }
+
+  async getAll() {
     return this.data;
-  };
-  getById = async (id) => {
-    return this.data[id];
-  };
+  }
 
-  create = async (data) => {
-    this.data.push({
-      id: uuidv4(),
-      nombre: data.nombre,
-    });
-    return this.data[this.data.length - 1];
-  };
+  async getById(id) {
+    return this.data.find((f) => f.id === id);
+  }
 }
-
-export default Service;
+const vueloService = new Service();
+export default vueloService;

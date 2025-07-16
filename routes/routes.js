@@ -1,11 +1,12 @@
 import { Router } from "express";
 import controller from "../container/container.js";
-import nameMidlewareValidate from "../midlewares/nameMidlewareValidate.js";
+import detectarColision from "../midlewares/Colision.js";
+import validarVuelo from "../midlewares/Vuelo.js";
 
 const routes = Router();
 
 routes.get("/", controller.getAll);
 routes.get("/:id", controller.getById);
-routes.post("/", nameMidlewareValidate, controller.create);
+routes.post("/", validarVuelo, detectarColision, controller.create);
 
 export default routes;
